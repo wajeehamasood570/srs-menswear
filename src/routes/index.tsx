@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ShoppingBag, Search, Menu, X, Plus, Minus, Trash2, Truck, ShieldCheck, RefreshCcw, Star, Instagram, Facebook, Twitter } from "lucide-react";
+import { ShoppingBag, Search, Menu, X, Plus, Minus, Trash2, Truck, ShieldCheck, RefreshCcw, Star, Instagram, Facebook, Twitter, Phone, MapPin } from "lucide-react";
 import logoAsset from "@/assets/srs-logo.asset.json";
 import heroImg from "@/assets/hero-mens.jpg";
 import { products, categories, type Product } from "@/lib/products";
@@ -13,10 +13,10 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SRS Men's Wear — Premium Kurta, Suits & Wedding Wear" },
-      { name: "description", content: "Shop SRS Men's Wear: handcrafted kurtas, shalwar kameez, waistcoats, prince coats and formal suits delivered across Pakistan." },
-      { property: "og:title", content: "SRS Men's Wear" },
-      { property: "og:description", content: "Premium men's fashion — handcrafted kurtas, suits & wedding wear." },
+      { title: "SRS Men's Wear Karachi — Premium Kurta, Suits & Wedding Wear" },
+      { name: "description", content: "Shop SRS Men's Wear in Karachi: handcrafted kurtas, shalwar kameez, waistcoats, prince coats and formal suits. Visit us at Hyderi Market or order online with Cash on Delivery." },
+      { property: "og:title", content: "SRS Men's Wear Karachi" },
+      { property: "og:description", content: "Premium men's fashion in Karachi — handcrafted kurtas, suits & wedding wear." },
     ],
   }),
   component: HomePage,
@@ -497,10 +497,10 @@ function Footer() {
               <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Men's Wear</div>
             </div>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Premium men's fashion handcrafted in Pakistan with timeless cuts and quality fabrics.</p>
+          <p className="mt-4 text-sm text-muted-foreground">Premium men's fashion handcrafted in Karachi with timeless cuts and quality fabrics. Deals in Men Clothing since 2010.</p>
           <div className="mt-4 flex gap-3 text-muted-foreground">
-            <a href="#" className="hover:text-gold"><Instagram className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-gold"><Facebook className="h-5 w-5" /></a>
+            <a href="https://instagram.com/srsgarments" target="_blank" rel="noreferrer" className="hover:text-gold"><Instagram className="h-5 w-5" /></a>
+            <a href="https://facebook.com/garmentssrs" target="_blank" rel="noreferrer" className="hover:text-gold"><Facebook className="h-5 w-5" /></a>
             <a href="#" className="hover:text-gold"><Twitter className="h-5 w-5" /></a>
           </div>
         </div>
@@ -521,15 +521,24 @@ function Footer() {
         </div>
         <div>
           <h4 className="font-display text-base mb-3">Contact</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>Lahore, Pakistan</li>
-            <li>+92 300 1234567</li>
-            <li>hello@srsmenswear.pk</li>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-gold" />
+              <span>Shop No. B/10, Mansoor Market Main, Hyderi Market, Karachi</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-gold" />
+              <a href="tel:+923322243032" className="hover:text-gold">+92 332 224 3032 (Saad)</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-gold" />
+              <a href="tel:+923322243269" className="hover:text-gold">+92 332 224 3269 (Rafiq)</a>
+            </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
-        © 2026 SRS Men's Wear. All rights reserved.
+        © 2026 S.R.S Garments — Men's Wear Karachi. All rights reserved.
       </div>
     </footer>
   );
