@@ -150,7 +150,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="SRS Men's Wear hero" className="h-full w-full object-cover object-top" width={1920} height={1080} />
+        <img src={heroImage} alt="SRS Men's Wear hero" className="h-full w-full object-cover object-top" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
       </div>
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
