@@ -339,9 +339,38 @@ function QuickView({ product, onClose }: { product: Product | null; onClose: () 
               </div>
             )}
 
+            {product.details && (
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-md border border-border p-3">
+                  <p className="text-xs uppercase tracking-wider text-gold mb-2">Details</p>
+                  <ul className="space-y-1 text-xs text-muted-foreground">
+                    {product.details.fabric && <li><span className="text-foreground font-medium">Fabric:</span> {product.details.fabric}</li>}
+                    {product.details.fit && <li><span className="text-foreground font-medium">Fit:</span> {product.details.fit}</li>}
+                    {product.details.waist && <li><span className="text-foreground font-medium">Waist:</span> {product.details.waist}</li>}
+                    {product.details.pockets && <li><span className="text-foreground font-medium">Pockets:</span> {product.details.pockets}</li>}
+                  </ul>
+                </div>
+                {product.details.features && (
+                  <div className="rounded-md border border-border p-3">
+                    <p className="text-xs uppercase tracking-wider text-gold mb-2">Why You'll Love It</p>
+                    <ul className="space-y-1 text-xs text-muted-foreground">
+                      {product.details.features.map((f) => <li key={f}>✓ {f}</li>)}
+                    </ul>
+                  </div>
+                )}
+                {product.details.care && (
+                  <div className="rounded-md border border-border p-3 sm:col-span-2">
+                    <p className="text-xs uppercase tracking-wider text-gold mb-2">Care Instructions</p>
+                    <p className="text-xs text-muted-foreground">{product.details.care.join(" · ")}</p>
+                  </div>
+                )}
+              </div>
+            )}
+
             <Button onClick={add} size="lg" className="mt-6 bg-gold text-primary-foreground hover:opacity-90">
               <ShoppingBag className="mr-2 h-4 w-4" /> Add to Cart
             </Button>
+
           </div>
         </div>
       </div>
