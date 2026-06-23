@@ -259,8 +259,9 @@ function ProductCard({ p, onQuickView }: { p: Product; onQuickView: (p: Product)
 }
 
 function QuickView({ product, onClose }: { product: Product | null; onClose: () => void }) {
-  const [size, setSize] = useState("M");
-  useEffect(() => { if (product) setSize("M"); }, [product]);
+  const availableSizes = product?.sizes ?? SIZES;
+  const [size, setSize] = useState(availableSizes[0] ?? "M");
+  useEffect(() => { if (product) setSize((product.sizes ?? SIZES)[0] ?? "M"); }, [product]);
   if (!product) return null;
 
   const add = () => {
@@ -289,21 +290,55 @@ function QuickView({ product, onClose }: { product: Product | null; onClose: () 
               <span className="text-2xl text-gold font-medium">{formatPKR(product.price)}</span>
               {product.oldPrice && <span className="text-sm text-muted-foreground line-through">{formatPKR(product.oldPrice)}</span>}
             </div>
+            {product.oldPrice && (
+              <p className="mt-1 text-xs font-medium text-green-500">⚠ Limited Stock Available</p>
+            )}
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
             <div className="mt-6">
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Select Size</p>
               <div className="flex flex-wrap gap-2">
-                {SIZES.map((s) => (
+                {availableSizes.map((s) => (
                   <button
                     key={s}
                     onClick={() => setSize(s)}
-                    className={`h-10 w-12 rounded-md border text-sm transition-all ${
+                    className={`h-10 min-w-12 px-3 rounded-md border text-sm transition-all ${
                       size === s ? "border-gold bg-gold text-primary-foreground font-medium" : "border-border hover:border-gold/50"
                     }`}
                   >{s}</button>
                 ))}
               </div>
             </div>
+
+            {product.sizeChart && (
+              <div className="mt-5">
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Size Chart</p>
+                <div className="overflow-x-auto rounded-md border border-border">
+                  <table className="w-full text-xs">
+                    <thead className="bg-secondary/60">
+                      <tr>
+                        <th className="px-3 py-2 text-left font-medium">Size</th>
+                        {product.sizeChart[0].chest && <th className="px-3 py-2 text-left font-medium">Chest</th>}
+                        {product.sizeChart[0].waist && <th className="px-3 py-2 text-left font-medium">Waist</th>}
+                        {product.sizeChart[0].length && <th className="px-3 py-2 text-left font-medium">Length</th>}
+                        {product.sizeChart[0].sleeve && <th className="px-3 py-2 text-left font-medium">Sleeve</th>}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {product.sizeChart.map((row) => (
+                        <tr key={row.size} className="border-t border-border">
+                          <td className="px-3 py-2 font-medium">{row.size}</td>
+                          {row.chest && <td className="px-3 py-2">{row.chest}</td>}
+                          {row.waist && <td className="px-3 py-2">{row.waist}</td>}
+                          {row.length && <td className="px-3 py-2">{row.length}</td>}
+                          {row.sleeve && <td className="px-3 py-2">{row.sleeve}</td>}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
             <Button onClick={add} size="lg" className="mt-6 bg-gold text-primary-foreground hover:opacity-90">
               <ShoppingBag className="mr-2 h-4 w-4" /> Add to Cart
             </Button>
