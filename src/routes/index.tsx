@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ShoppingBag, Search, Menu, X, Plus, Minus, Trash2, Truck, ShieldCheck, RefreshCcw, Star, Instagram, Facebook, Twitter, Phone, MapPin } from "lucide-react";
 import logoAsset from "@/assets/srs-logo.asset.json";
-import heroImg from "@/assets/hero-mens.jpg";
-import { products, categories, type Product } from "@/lib/products";
+import { products, categories, heroImage, type Product } from "@/lib/products";
+
 import { cartStore, useCart, formatPKR } from "@/lib/cart-store";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

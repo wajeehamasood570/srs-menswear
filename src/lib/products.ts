@@ -1,6 +1,3 @@
-import waistcoatNavy from "@/assets/product-waistcoat-navy.jpg";
-import whiteSuit from "@/assets/product-white-suit.jpg";
-import princeCoat from "@/assets/product-prince-coat.jpg";
 import tshirtPurple from "@/assets/tshirt-support-purple.jpg.asset.json";
 import tshirtBlack from "@/assets/tshirt-support-black.jpg.asset.json";
 import trouserBlackDrop from "@/assets/trouser-black-drop.jpg.asset.json";
@@ -21,7 +18,7 @@ export type ProductDetails = {
 export type Product = {
   id: string;
   name: string;
-  category: "Shalwar Kameez" | "Waistcoat" | "Prince Coat" | "T-Shirt" | "Trousers";
+  category: "T-Shirt" | "Trousers";
   price: number;
   oldPrice?: number;
   image: string;
@@ -65,16 +62,11 @@ export const products: Product[] = [
   { id: "tr3", name: "Premium Slim Fit Trouser — Dark Olive", category: "Trousers", price: 3100, oldPrice: 3995, image: trouserOlive.url, tag: "New", description: "Dark olive green slim-fit trouser with modern silhouette and elastic drawstring waistband.", sizes: trouserSizes, details: trouserDetails },
   { id: "tr4", name: "Premium Slim Fit Trouser — Steel Blue", category: "Trousers", price: 3100, oldPrice: 3995, image: trouserSteel.url, description: "Steel blue slim trouser — refined casual wear with pintuck front and drawstring waist.", sizes: trouserSizes, details: trouserDetails },
   { id: "tr5", name: "Premium Slim Fit Trouser — Contrast Black", category: "Trousers", price: 3100, oldPrice: 3995, image: trouserBlackDrop.url, tag: "New", description: "Black slim trouser with contrast white drawstring and signature pintuck front — sharp, modern, comfortable.", sizes: trouserSizes, details: trouserDetails },
-
-  { id: "p3", name: "Royal Navy Waistcoat", category: "Waistcoat", price: 6200, oldPrice: 7500, image: waistcoatNavy, description: "Slim-fit navy waistcoat with mandarin collar — a refined choice for formal occasions." },
-  { id: "p4", name: "Ivory Cotton Suit", category: "Shalwar Kameez", price: 5200, image: whiteSuit, tag: "Eid Pick", description: "Crisp ivory shalwar kameez stitched in soft cotton for all-day comfort." },
-  { id: "p6", name: "Maroon Wedding Prince Coat", category: "Prince Coat", price: 24500, image: princeCoat, tag: "Wedding", description: "Hand-embroidered maroon prince coat — a regal statement for your wedding day." },
 ];
 
 export const categories = [
   { name: "T-Shirt", count: 2 },
   { name: "Trousers", count: 5 },
-  { name: "Shalwar Kameez", count: 18 },
-  { name: "Waistcoat", count: 12 },
-  { name: "Prince Coat", count: 9 },
 ];
+
+export const heroImage = tshirtBlack.url;
