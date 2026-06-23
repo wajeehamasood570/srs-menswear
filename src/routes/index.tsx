@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ShoppingBag, Search, Menu, X, Plus, Minus, Trash2, Truck, ShieldCheck, RefreshCcw, Star, Instagram, Facebook, Twitter, Phone, MapPin } from "lucide-react";
 import logoAsset from "@/assets/srs-logo.asset.json";
-import heroImg from "@/assets/hero-mens.jpg";
-import { products, categories, type Product } from "@/lib/products";
+import { products, categories, heroImage, type Product } from "@/lib/products";
+
 import { cartStore, useCart, formatPKR } from "@/lib/cart-store";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -150,7 +150,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="SRS Men's Wear hero" className="h-full w-full object-cover object-top" width={1920} height={1080} />
+        <img src={heroImage} alt="SRS Men's Wear hero" className="h-full w-full object-cover object-top" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
       </div>
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:py-36">
